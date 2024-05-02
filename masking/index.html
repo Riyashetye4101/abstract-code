@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #draggable-container{
+    width:100%;
+    height:40%;
+    background-color:transparent;
+    position:absolute;
+    bottom:0%;
+   
+}
+
+#draggable-element{
+    
+position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	filter: blur(0px);
+	-webkit-filter: blur(0px);
+	background-image: url("https://cache-ssl.celtra.com/api//blobs/9a6a6bd58639605a592d70ae5ff4447825a3eb013103ce7ebb66754dc57e9507/b.png?transform=crush&quality=256");
+	background-attachment: fixed !Important;
+	background-repeat:no-repeat;
+	background-size:100%;
+	width: 200px !Important;
+	height: 200px !Important;
+	
+	position: relative;
+	cursor: move;
+
+}
+/*#draggable-element{*/
+/*    width:17.03%;*/
+/*    height:19%;*/
+    
+/*    object-fit:cover;*/
+/*    background:url("https://cache-ssl.celtra.com/api//blobs/9a6a6bd58639605a592d70ae5ff4447825a3eb013103ce7ebb66754dc57e9507/b.png?transform=crush&quality=256");*/
+/*    background-size: 100%;*/
+/*    position:absolute;*/
+/*    bottom:0%;*/
+/*}*/
+.bg-image{
+  width:100%;
+	object-fit:contain;
+}
+#blurred {
+	 position: absolute;
+	top: 0;
+	left: 0;
+    width: 100vw;
+	height: auto;
+	object-fit:contain;
+	overflow:hidden;
+	background-attachment: fixed !Important;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+    </style>
+</head>
+<body>
+    
+
+    <img id="blurred" src="https://cache-ssl.celtra.com/api//blobs/0da089bd39ce4bf5cc6dec05b9e2d295c9debef20e5ad6b9730061b3e0ca8274/a.png?transform=crush&quality=256">
+
+    <div id="draggable-container">
+        <div id="draggable-element">
+            <img class="bg-image" src="https://cache-ssl.celtra.com/api//blobs/5c1aea085250b0d3bb7159d23eda002871fcd98efc9cd405489975617bfa7170/CTA.png?transform=crush&quality=256">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Include jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- Include jQuery UI Touch Punch -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+<script>
+    loadJS("https://code.jquery.com/jquery-1.12.4.min.js",function(){
+    loadJS("https://code.jquery.com/ui/1.12.1/jquery-ui.min.js",function(){
+        loadJS("https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js",function(){
+           $(function(){
+              $("#draggable-element").draggable({
+                
+                axis:"xy",
+                containment: "#draggable-container",
+                scroll:false,
+                disable:false
+                 
+            }); 
+           });
+        });
+    });
+});
+</script>
+</body>
+</html>
